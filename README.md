@@ -12,8 +12,8 @@ Python bindings:
 Python 3.5.2 (default, Nov 23 2017, 16:37:01) 
 [GCC 5.4.0 20160609] on linux
 Type "help", "copyright", "credits" or "license" for more information.
-import twomeantree
-Xarr = [[1, 5, 7.8, 10.2, 15, 19, 21, 199, 200, 201, 202, 203, 204, 205]]
-idxs = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
-tree = twomeantree.buildTwoMeansTree(idxs, Xarr, 0, 4, 0)
+import twomeantree\\
+Xarr = [[1, 5, 7.8, 10.2, 15, 19, 21, 199, 200, 201, 202, 203, 204, 205]]\\
+idxs = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]\\
+tree = twomeantree.buildTwoMeansTree(idxs, Xarr, 0, 4, 0)\\
 
