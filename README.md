@@ -6,6 +6,6 @@ To compile: g++ -std=c++11 TwoMeansTree.cpp -o TwoMeansTree
 
 Python bindings:
 
-1. Install pybind11
+1. Install pybind11 (https://pybind11.readthedocs.io/en/stable/basics.html)
 2. g++ -I/usr/include/python3.5m -O3 -shared -std=c++11 -fPIC `python3 -m --includes` TwoMeanTree.h TwoMeanTree.cpp bindings.cpp -o twomeantree`python3-config --extension-suffix`
 
