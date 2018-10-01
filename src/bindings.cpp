@@ -1,13 +1,11 @@
-#include <pybind11/pybind11.h>
-#include <pybind11/stl.h>
-#include <pybind11/stl_bind.h>
-#include"TwoMeanTree.h"
+#include <TwoMeansTree.h>
+#include <bindings.h>
 
 namespace py = pybind11;
 using namespace std;
 
  
-PYBIND11_MODULE(twomeantree, m) {
+PYBIND11_MODULE(two_means_trees, m) {
 	m.doc() = "Python Bindings for TwoMeanTrees"; 
 	m.def("greaterSecondInPair", &greaterSecondInPair);
 	py::class_<TwoMeansTreeNode>(m, "TwoMeansTreeNode")
@@ -17,10 +15,10 @@ PYBIND11_MODULE(twomeantree, m) {
 		.def("setSplitDim", &TwoMeansTreeNode::setSplitDim)
 		.def("getSplitDim", &TwoMeansTreeNode::getSplitDim)
 		.def("getDepth", &TwoMeansTreeNode::getDepth)
-		.def("getRightChild", &TwoMeansTreeNode::getLeftChild)
-		.def("getLeftChild", &TwoMeansTreeNode::setRightChild)
+		.def("getRightChild", &TwoMeansTreeNode::getLeftChild, pybind11::return_value_policy::move)
+		.def("getLeftChild", &TwoMeansTreeNode::getRightChild, pybind11::return_value_policy::move)
 		.def("getPoints", &TwoMeansTreeNode::getPoints)
-		.def("getMidPoint", &TwoMeansTreeNode::getMidpoint)
+		.def("getMidpoint", &TwoMeansTreeNode::getMidpoint)
 		.def("isLeafNode", &TwoMeansTreeNode::isLeafNode)
 		.def("getID", &TwoMeansTreeNode::getID);
 	m.def("occurCountGreaterThan", &occurCountGreaterThan, "docstring");
@@ -33,7 +31,7 @@ PYBIND11_MODULE(twomeantree, m) {
 	m.def("split_1D_DataBy2Means", &split_1D_DataBy2Means, "docstring");
 	m.def("splitDataBy2Means", &splitDataBy2Means, "docstring");
 	m.def("chooseBestSplit", &chooseBestSplit, "docstring");
-	m.def("buildTwoMeansTree", &buildTwoMeansTree, "docstring");
+	m.def("buildTwoMeansTree", &buildTwoMeansTree, pybind11::return_value_policy::copy);
 	m.def("numPoints", &numPoints, "docstring");
 	m.def("getRandomSample", [](vector< vector<double> > X, int size, 
 		vector<vector<int>> appearsInTree, int treeID) {

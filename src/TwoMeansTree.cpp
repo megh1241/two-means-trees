@@ -14,7 +14,7 @@
 #include <memory> //unique_ptr
 #include <unordered_map>
 #include <utility> //pair
-#include"TwoMeanTree.h"
+#include <TwoMeansTree.h>
 
 using namespace std;
 
@@ -56,8 +56,10 @@ TwoMeansTreeNode::TwoMeansTreeNode(vector< vector<double> > pts, unsigned int d,
 		} 
 		
 TwoMeansTreeNode::~TwoMeansTreeNode(){
+/*
 			delete this->right;
 			delete this->left;
+*/
 		}
 		
 		void TwoMeansTreeNode::setRightChild(TwoMeansTreeNode* t1){
