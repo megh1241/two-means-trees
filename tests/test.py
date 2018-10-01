@@ -39,14 +39,13 @@ class TestUM(unittest.TestCase):
 
     def testBuildTwoMeansTree(self):
         idxs = [1,2,3,4,5,6,7,8];
-        idxs2 = [[1],[2],[3],[4],[5],[6],[7],[8]];
-        tree = tmt.buildTwoMeansTree(idxs, idxs2, 0, 4, 0);
-        print (tree.getMidpoint())
-        tree2 = tree.getLeftChild()
-        print (tree2.getMidpoint())
-        print (tree2.getMidpoint())
+        X = [[1],[2],[3],[4],[5],[6],[7],[8]];
+        tree = tmt.buildTwoMeansTree(idxs, X, 0, 4, 0);
+        self.assertEqual(tree.getMidpoint(), 4.5)
+        self.assertEqual(tree.getLeftChild().getMidpoint(), 6.5)
+        self.assertEqual(tree.getRightChild().getMidpoint(), 2.5)
 
-        self.assertEqual(1,1)
- 
+
+
 if __name__ == '__main__':
     unittest.main()
